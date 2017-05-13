@@ -1,0 +1,52 @@
+class Player
+  attr_reader :name, :hometown, :points
+  attr_accessor :team, :name
+
+  def initialize(name, hometown, team)
+      @name = name
+      @hometown = hometown
+      @team = team
+      @points = 0
+  end
+
+
+  def field_goal
+    scores (2)
+  end
+  def free_throw
+    scores (1)
+  end
+  def scoring_summary
+    "#{@name} scores, total points: #{@points}"
+  end
+  # def update_team(new_team)
+  #   @team = new_team
+  # end
+
+  private
+
+  def scores(num_points)
+    @points += num_points
+  end
+
+end
+
+mj = Player.new("Miachel", "Charolette", "BUlls")
+puts "MJ, points: #{mj.points}"
+
+# mj.field_goal
+# puts "MJ scores, total points: #{mj.points}"
+mj.field_goal
+mj.field_goal
+puts mj.scoring_summary
+
+magic = Player.new("Magic", "LA", "Lakers")
+magic.field_goal
+puts magic.scoring_summary
+
+puts mj.team
+# mj.update_team("wizards")
+mj.team = "Hornets"
+mj.name = "Bill Bob"
+puts mj.team
+puts mj.scoring_summary
